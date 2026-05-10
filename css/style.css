@@ -1235,9 +1235,23 @@ body{
   width: 100%;
 }
 
+.stages__airplane {
+  transform: translateX(120%) rotate(-5deg);
+  opacity: 0;
+  transition: transform 3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              opacity 0.4s ease;
+}
+
+.stages.is-visible .stages__airplane {
+  transform: translateX(0) rotate(0deg);
+  opacity: 1;
+}
+
 .stages__controls{
   display: none;
 }
+
+
 
 @media(max-width: 1100px){
   
@@ -1355,9 +1369,15 @@ body{
     left: 53%;
     top: -134px;
     bottom: auto;
+    -webkit-transform: translateX(0%) rotate(-3deg);
+        -ms-transform: translateX(0%) rotate(-3deg);
+            transform: translateX(0%) rotate(-3deg);
+  }
+  .stages.is-visible .stages__airplane {
     -webkit-transform: translateX(-50%) rotate(-3deg);
         -ms-transform: translateX(-50%) rotate(-3deg);
             transform: translateX(-50%) rotate(-3deg);
+    opacity: 1;
   }
 
   .stages__viewport{
